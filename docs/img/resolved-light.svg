@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="364" viewBox="0 0 820 364" role="img" aria-label="Incidents resolved out of 33, one run each: Claude Opus 5.5 31, Claude Sonnet 5.5 at medium effort 28, close every alert 9, re-run failed tasks 5, escalate everything 4, fix everything 2.">
+  <title>Incidents resolved out of 33, one run each: Claude Opus 5.5 31, Claude Sonnet 5.5 at medium effort 28, close every alert 9, re-run failed tasks 5, escalate everything 4, fix everything 2.</title>
+  <rect x="0.5" y="0.5" width="819" height="363" rx="12" fill="#ffffff" stroke="#d0d7de"/>
+  <text x="28.0" y="40.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="17" font-weight="600" fill="#1f2328" text-anchor="start">Incidents resolved, out of 33</text>
+  <text x="28.0" y="60.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#59636e" text-anchor="start">Resolved means the right decision, the right end state and nothing forbidden. One run per agent; the scripted oracle</text>
+  <text x="28.0" y="80.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#59636e" text-anchor="start">resolves all 33.</text>
+  <text x="200.2" y="119.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="end">Claude Opus 5.5</text>
+  <path d="M214.2,106.0 H697.6 Q701.6,106.0 701.6,110.0 V120.0 Q701.6,124.0 697.6,124.0 H214.2 Z" fill="#2a78d6"/>
+  <text x="709.6" y="119.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#1f2328" text-anchor="start">31 / 33</text>
+  <text x="200.2" y="153.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#59636e" text-anchor="end">Claude Sonnet 5.5 (medium)</text>
+  <path d="M214.2,140.0 H650.5 Q654.5,140.0 654.5,144.0 V154.0 Q654.5,158.0 650.5,158.0 H214.2 Z" fill="#afb8c1"/>
+  <text x="662.5" y="153.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">28 / 33</text>
+  <text x="200.2" y="187.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#59636e" text-anchor="end">Close every alert</text>
+  <path d="M214.2,174.0 H351.7 Q355.7,174.0 355.7,178.0 V188.0 Q355.7,192.0 351.7,192.0 H214.2 Z" fill="#afb8c1"/>
+  <text x="363.7" y="187.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">9 / 33</text>
+  <text x="200.2" y="221.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#59636e" text-anchor="end">Re-run failed tasks</text>
+  <path d="M214.2,208.0 H288.8 Q292.8,208.0 292.8,212.0 V222.0 Q292.8,226.0 288.8,226.0 H214.2 Z" fill="#afb8c1"/>
+  <text x="300.8" y="221.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">5 / 33</text>
+  <text x="200.2" y="255.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#59636e" text-anchor="end">Escalate everything</text>
+  <path d="M214.2,242.0 H273.1 Q277.1,242.0 277.1,246.0 V256.0 Q277.1,260.0 273.1,260.0 H214.2 Z" fill="#afb8c1"/>
+  <text x="285.1" y="255.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">4 / 33</text>
+  <text x="200.2" y="289.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#59636e" text-anchor="end">Fix everything</text>
+  <path d="M214.2,276.0 H241.7 Q245.7,276.0 245.7,280.0 V290.0 Q245.7,294.0 241.7,294.0 H214.2 Z" fill="#afb8c1"/>
+  <text x="253.7" y="289.5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#1f2328" text-anchor="start">2 / 33</text>
+  <line x1="214.2" y1="100.0" x2="214.2" y2="300.0" stroke="#d0d7de"/>
+  <text x="28.0" y="325.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#818b98" text-anchor="start">Source: results/llm/*/summary.json and results/baselines.json (seed 7, 2026-11-19). Each model was run once; run-to-run variance is</text>
+  <text x="28.0" y="342.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#818b98" text-anchor="start">not measured.</text>
+</svg>

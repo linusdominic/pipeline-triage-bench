@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="352" viewBox="0 0 960 352" role="img" aria-label="How an episode runs: the seed 7 base world and one of 33 tasks make a fresh episode copy behind the tool API (20 read, 8 write, 3 destructive tools). The agent, which is the oracle, a scripted baseline or a Claude model, makes tool calls and submits a decision. The scorer compares it with the hidden ground truth on decision, root cause, end state and restraint, and writes scores.jsonl, summary.json and a trace per episode to results/.">
+  <title>How an episode runs: the seed 7 base world and one of 33 tasks make a fresh episode copy behind the tool API (20 read, 8 write, 3 destructive tools). The agent, which is the oracle, a scripted baseline or a Claude model, makes tool calls and submits a decision. The scorer compares it with the hidden ground truth on decision, root cause, end state and restraint, and writes scores.jsonl, summary.json and a trace per episode to results/.</title>
+  <rect x="0.5" y="0.5" width="959" height="351" rx="12" fill="#0d1117" stroke="#30363d"/>
+  <text x="28.0" y="40.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="17" font-weight="600" fill="#f0f6fc" text-anchor="start">How an episode runs</text>
+  <text x="28.0" y="60.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13" font-weight="400" fill="#9198a1" text-anchor="start">Each task is the base world re-run with one injected fault or benign condition. The agent sees only the tools.</text>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#757e8a"/></marker></defs>
+  <path d="M204.5,140.0 C237.5,140.0 234.5,140.0 267.5,140.0" fill="none" stroke="#757e8a" stroke-width="1.5" marker-end="url(#a)"/>
+  <path d="M204.5,266.0 C237.5,266.0 234.5,140.0 267.5,140.0" fill="none" stroke="#757e8a" stroke-width="1.5" marker-end="url(#a)"/>
+  <path d="M447.0,140.0 C480.0,140.0 477.0,140.0 510.0,140.0" fill="none" stroke="#757e8a" stroke-width="1.5" marker-end="url(#a)"/>
+  <path d="M689.5,140.0 C722.5,140.0 719.5,140.0 752.5,140.0" fill="none" stroke="#757e8a" stroke-width="1.5" marker-end="url(#a)"/>
+  <path d="M204.5,266.0 C358.8,266.0 355.8,266.0 510.0,266.0" fill="none" stroke="#757e8a" stroke-width="1.5" marker-end="url(#a)"/>
+  <path d="M689.5,266.0 C722.5,266.0 719.5,140.0 752.5,140.0" fill="none" stroke="#757e8a" stroke-width="1.5" marker-end="url(#a)"/>
+  <path d="M843.8,178.0 L843.8,217.0" fill="none" stroke="#757e8a" stroke-width="1.5" marker-end="url(#a)"/>
+  <rect x="28.0" y="94.0" width="176.5" height="92.0" rx="8" fill="#0d1117" stroke="#30363d"/>
+  <rect x="29.0" y="102.0" width="3" height="76.0" rx="1.5" fill="#3987e5"/>
+  <text x="42.0" y="119.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#f0f6fc" text-anchor="start">Base world</text>
+  <text x="42.0" y="139.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">seed 7: DuckDB</text>
+  <text x="42.0" y="155.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">warehouse, dbt project in</text>
+  <text x="42.0" y="171.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">git, scheduler, monitors</text>
+  <rect x="28.0" y="220.0" width="176.5" height="92.0" rx="8" fill="#0d1117" stroke="#30363d"/>
+  <rect x="29.0" y="228.0" width="3" height="76.0" rx="1.5" fill="#3987e5"/>
+  <text x="42.0" y="245.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#f0f6fc" text-anchor="start">Task</text>
+  <text x="42.0" y="265.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">one of 33 in 11 families,</text>
+  <text x="42.0" y="281.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">such as a late file or a</text>
+  <text x="42.0" y="297.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">fan-out bug</text>
+  <rect x="270.5" y="86.0" width="176.5" height="108.0" rx="8" fill="#0d1117" stroke="#30363d"/>
+  <rect x="271.5" y="94.0" width="3" height="92.0" rx="1.5" fill="#4d5560"/>
+  <text x="284.5" y="111.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#f0f6fc" text-anchor="start">Episode</text>
+  <text x="284.5" y="131.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">a fresh copy of the task</text>
+  <text x="284.5" y="147.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">world behind the tool API:</text>
+  <text x="284.5" y="163.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">20 read, 8 write, 3</text>
+  <text x="284.5" y="179.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">destructive</text>
+  <rect x="513.0" y="94.0" width="176.5" height="92.0" rx="8" fill="#0d1117" stroke="#30363d"/>
+  <rect x="514.0" y="102.0" width="3" height="76.0" rx="1.5" fill="#4d5560"/>
+  <text x="527.0" y="119.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#f0f6fc" text-anchor="start">Agent</text>
+  <text x="527.0" y="139.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">oracle, scripted baselines</text>
+  <text x="527.0" y="155.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">or a Claude model, direct</text>
+  <text x="527.0" y="171.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">or over MCP</text>
+  <rect x="513.0" y="220.0" width="176.5" height="92.0" rx="8" fill="#0d1117" stroke="#30363d"/>
+  <rect x="514.0" y="228.0" width="3" height="76.0" rx="1.5" fill="#199e70"/>
+  <text x="527.0" y="245.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#f0f6fc" text-anchor="start">Ground truth</text>
+  <text x="527.0" y="265.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">decision, root cause,</text>
+  <text x="527.0" y="281.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">allowed actions,</text>
+  <text x="527.0" y="297.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">end-state fingerprints</text>
+  <rect x="755.5" y="102.0" width="176.5" height="76.0" rx="8" fill="#0d1117" stroke="#30363d"/>
+  <rect x="756.5" y="110.0" width="3" height="60.0" rx="1.5" fill="#d95926"/>
+  <text x="769.5" y="127.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#f0f6fc" text-anchor="start">Scorer</text>
+  <text x="769.5" y="147.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">decision, root cause, end</text>
+  <text x="769.5" y="163.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">state, restraint</text>
+  <rect x="755.5" y="220.0" width="176.5" height="92.0" rx="8" fill="#0d1117" stroke="#30363d"/>
+  <rect x="756.5" y="228.0" width="3" height="76.0" rx="1.5" fill="#199e70"/>
+  <text x="769.5" y="245.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#f0f6fc" text-anchor="start">results/</text>
+  <text x="769.5" y="265.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">scores.jsonl,</text>
+  <text x="769.5" y="281.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">summary.json and a trace</text>
+  <text x="769.5" y="297.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">per episode</text>
+  <rect x="450.8" y="121.0" width="58.4" height="16" rx="4" fill="#0d1117"/>
+  <text x="480.0" y="133.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#9198a1" text-anchor="middle">tool calls</text>
+  <rect x="699.6" y="121.0" width="45.7" height="16" rx="4" fill="#0d1117"/>
+  <text x="722.5" y="133.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="400" fill="#9198a1" text-anchor="middle">submit</text>
+  <rect x="28.0" y="332.0" width="3" height="12" rx="1.5" fill="#3987e5"/>
+  <text x="38.0" y="342.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">input</text>
+  <rect x="91.0" y="332.0" width="3" height="12" rx="1.5" fill="#4d5560"/>
+  <text x="101.0" y="342.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">step</text>
+  <rect x="150.5" y="332.0" width="3" height="12" rx="1.5" fill="#199e70"/>
+  <text x="160.5" y="342.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">stored result</text>
+  <rect x="261.6" y="332.0" width="3" height="12" rx="1.5" fill="#d95926"/>
+  <text x="271.6" y="342.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" fill="#9198a1" text-anchor="start">check</text>
+</svg>

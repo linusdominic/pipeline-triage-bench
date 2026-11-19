@@ -9,6 +9,11 @@ agent investigates through tools and ends the episode by submitting a decision. 
 scores the decision, the root cause, the state the warehouse is left in, and whether the agent
 did things it should not have done.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/img/resolved-dark.svg">
+  <img alt="Incidents resolved out of 33, one run each: Claude Opus 5.5 31, Claude Sonnet 5.5 at medium effort 28, close every alert 9, re-run failed tasks 5, escalate everything 4, fix everything 2." src="docs/img/resolved-light.svg">
+</picture>
+
 | Agent | Resolved | Decision | Root cause | End state | False-alarm restraint | Unnecessary-action rate | Destructive-action rate | Mean tool calls |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | claude-opus-5-5 | 94% | 94% | 97% | 100% | 100% | 0% | 0% | 18.61 |
@@ -45,6 +50,11 @@ traces and full transcripts are in [results/llm/](results/llm/). See
   tools, which is how the benchmark checks that every expected end state is reachable.
 
 ## Claude models
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/img/dimensions-dark.svg">
+  <img alt="Score by dimension over 33 tasks, one run each, Claude Opus 5.5 against Claude Sonnet 5.5 at medium effort: resolved 94% and 85%, decision 94% and 88%, root cause 97% and 97%, end state 100% and 94%, false-alarm restraint 100% and 100%." src="docs/img/dimensions-light.svg">
+</picture>
 
 | Model | Resolved | Cost | Wall time | Tokens in / out | Missed |
 | --- | --- | --- | --- | --- | --- |
@@ -105,6 +115,11 @@ change nothing; in six more the answer is to re-process data without changing an
 configuration.
 
 ## An episode
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/img/architecture-dark.svg">
+  <img alt="How an episode runs: the seed 7 base world and one of 33 tasks make a fresh episode copy behind the tool API (20 read, 8 write, 3 destructive tools). The agent, which is the oracle, a scripted baseline or a Claude model, makes tool calls and submits a decision. The scorer compares it with the hidden ground truth on decision, root cause, end state and restraint, and writes scores.jsonl, summary.json and a trace per episode to results/." src="docs/img/architecture-light.svg">
+</picture>
 
 The agent is told the time and that alerts are open. This is `late_file_a`, as returned by the
 tools:
