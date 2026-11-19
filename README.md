@@ -302,7 +302,10 @@ results/              committed baseline scores and the validation report
   id, summary, decision identifier or host path is reachable; it cannot rule out subtler hints.
 - **The benign noise alerts are all one kind** (a CDC replay on the payments feed).
 - **Evidence is recorded but not scored.**
-- **Every timing comes from one machine.** The CI workflow has not run yet.
+- **Every timing in this README comes from one machine.** CI (GitHub's Linux runners) runs
+  lint, the tests and the full `make validate` on every push; its first run passed every
+  check (oracle 33 of 33, alerts, leakage, incremental, and determinism over 34 worlds),
+  so the worlds also generate and validate on Linux.
 
 ## Licence
 
