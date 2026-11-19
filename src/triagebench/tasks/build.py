@@ -48,7 +48,21 @@ from triagebench.world.datagen import LandingFile, Timeline, cents, dollars, tra
 from triagebench.world.orchestrator import FailureHook, Hooks, Orchestrator
 from triagebench.world.world import World
 
-BUILD_VERSION = "4"
+
+def _template_digest() -> str:
+    """Hash of the files every world's git repo is created from (dbt project, runbooks...).
+
+    Part of BUILD_VERSION, so that editing the template rebuilds cached worlds instead of
+    leaving them with the old files.
+    """
+    root = Path(repo.__file__).parent / "repo_template"
+    h = hashlib.sha256()
+    for f in sorted(p for p in root.rglob("*") if p.is_file() and "__pycache__" not in p.parts):
+        h.update(f.relative_to(root).as_posix().encode() + b"\0" + f.read_bytes() + b"\0")
+    return h.hexdigest()[:12]
+
+
+BUILD_VERSION = f"5-{_template_digest()}"
 
 
 def base_dir(seed: int) -> Path:

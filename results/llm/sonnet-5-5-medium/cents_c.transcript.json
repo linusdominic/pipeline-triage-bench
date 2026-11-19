@@ -1,0 +1,215 @@
+[
+ {
+  "role": "user",
+  "content": "You are the on-call engineer for the data platform at Harbor Lending, a fictional lender. It is 2026-09-24 08:30:00. Monitors have raised the alerts listed by list_alerts.\n\nFind out what happened and do what the situation requires: that can be nothing at all. Write tools change the warehouse, the pipeline repository, the monitors or send messages; use them only when they are needed, and prefer the smallest correct action. You cannot ask anyone questions during the episode.\n\nFinish by calling submit exactly once with your decision, the root-cause component, your evidence and a short summary."
+ },
+ {
+  "role": "assistant",
+  "stop_reason": "tool_use",
+  "content": [
+   {
+    "id": "toolu_0146bBUvLzMQ2nFZjWTGXGwZ",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {},
+    "name": "list_alerts",
+    "type": "tool_use"
+   }
+  ]
+ },
+ {
+  "role": "user",
+  "content": [
+   {
+    "type": "tool_result",
+    "tool_use_id": "toolu_0146bBUvLzMQ2nFZjWTGXGwZ",
+    "content": "{\"ok\": true, \"result\": [{\"id\": \"ALR-B986A9\", \"monitor\": \"reconciliation_payments\", \"type\": \"reconciliation\", \"severity\": \"high\", \"status\": \"open\", \"target\": \"raw.payments\", \"partition\": \"2026-09-23\", \"opened_at\": \"2026-09-24 07:30:00\", \"last_seen_at\": \"2026-09-24 08:30:00\", \"message\": \"raw.payments partition 2026-09-23: loaded 291 records totalling 39,499,206.00; trailer of keel_payments_20260923.csv says 291 records totalling 394,992.06 (9900.0% apart, tolerance 0.5%)\"}, {\"id\": \"ALR-CD3735\", \"monitor\": \"freshness_mart_delinquency\", \"type\": \"freshness\", \"severity\": \"high\", \"status\": \"open\", \"target\": \"main.mart_delinquency\", \"partition\": \"2026-09-23\", \"opened_at\": \"2026-09-24 07:30:00\", \"last_seen_at\": \"2026-09-24 08:30:00\", \"message\": \"main.mart_delinquency: newest partition is 2026-09-22, expected 2026-09-23 (calendar: weekdays, max lag 1 day(s))\"}, {\"id\": \"ALR-D529F2\", \"monitor\": \"dbt_tests\", \"type\": \"dbt_test\", \"severity\": \"high\", \"status\": \"open\", \"target\": \"model:fct_loan_balance_daily\", \"partition\": \"2026-09-23\", \"opened_at\": \"2026-09-24 07:30:00\", \"last_seen_at\": \"2026-09-24 08:30:00\", \"message\": \"dbt test assert_no_negative_balances on fct_loan_balance_daily: fail in the latest build of partition(s) 2026-09-23\"}, {\"id\": \"ALR-E6E7C4\", \"monitor\": \"task_failures\", \"type\": \"task_failure\", \"severity\": \"high\", \"status\": \"open\", \"target\": \"task:dbt_build\", \"partition\": \"2026-09-23\", \"opened_at\": \"2026-09-24 07:30:00\", \"last_seen_at\": \"2026-09-24 08:30:00\", \"message\": \"harbor_daily.dbt_build failed for ds=2026-09-23 after attempt 2: dbt build finished with 1 failing node(s) and 2 skipped\"}]}",
+    "is_error": false
+   }
+  ]
+ },
+ {
+  "role": "assistant",
+  "stop_reason": "tool_use",
+  "content": [
+   {
+    "text": "Amounts 100x off. Look at the file.",
+    "type": "text"
+   },
+   {
+    "id": "toolu_011ebeieurwb2r589ZVcJdm5",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "source": "payments"
+    },
+    "name": "list_landing_files",
+    "type": "tool_use"
+   },
+   {
+    "id": "toolu_01P3ckFTy62X42cZAmqu2LWB",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {},
+    "name": "get_owners",
+    "type": "tool_use"
+   }
+  ]
+ },
+ {
+  "role": "user",
+  "content": [
+   {
+    "type": "tool_result",
+    "tool_use_id": "toolu_011ebeieurwb2r589ZVcJdm5",
+    "content": "{\"ok\": true, \"result\": [{\"path\": \"landing/payments/keel_payments_20260803.csv\", \"bytes\": 26727, \"arrived_at\": \"2026-08-04 03:39:00\"}, {\"path\": \"landing/payments/keel_payments_20260804.csv\", \"bytes\": 20003, \"arrived_at\": \"2026-08-05 03:46:00\"}, {\"path\": \"landing/payments/keel_payments_20260805.csv\", \"bytes\": 17172, \"arrived_at\": \"2026-08-06 03:22:00\"}, {\"path\": \"landing/payments/keel_payments_20260806.csv\", \"bytes\": 15390, \"arrived_at\": \"2026-08-07 03:28:00\"}, {\"path\": \"landing/payments/keel_payments_20260807.csv\", \"bytes\": 9907, \"arrived_at\": \"2026-08-08 03:11:00\"}, {\"path\": \"landing/payments/keel_payments_20260810.csv\", \"bytes\": 14411, \"arrived_at\": \"2026-08-11 03:28:00\"}, {\"path\": \"landing/payments/keel_payments_20260811.csv\", \"bytes\": 12917, \"arrived_at\": \"2026-08-12 03:47:00\"}, {\"path\": \"landing/payments/keel_payments_20260812.csv\", \"bytes\": 11568, \"arrived_at\": \"2026-08-13 03:56:00\"}, {\"path\": \"landing/payments/keel_payments_20260813.csv\", \"bytes\": 10248, \"arrived_at\": \"2026-08-14 03:17:00\"}, {\"path\": \"landing/payments/keel_payments_20260814.csv\", \"bytes\": 8982, \"arrived_at\": \"2026-08-15 03:25:00\"}, {\"path\": \"landing/payments/keel_payments_20260817.csv\", \"bytes\": 14570, \"arrived_at\": \"2026-08-18 03:35:00\"}, {\"path\": \"landing/payments/keel_payments_20260818.csv\", \"bytes\": 11804, \"arrived_at\": \"2026-08-19 03:28:00\"}, {\"path\": \"landing/payments/keel_payments_20260819.csv\", \"bytes\": 10146, \"arrived_at\": \"2026-08-20 03:23:00\"}, {\"path\": \"landing/payments/keel_payments_20260820.csv\", \"bytes\": 9478, \"arrived_at\": \"2026-08-21 03:28:00\"}, {\"path\": \"landing/payments/keel_payments_20260821.csv\", \"bytes\": 9554, \"arrived_at\": \"2026-08-22 03:34:00\"}, {\"path\": \"landing/payments/keel_payments_20260824.csv\", \"bytes\": 6400, \"arrived_at\": \"2026-08-25 03:48:00\"}, {\"path\": \"landing/payments/keel_payments_20260825.csv\", \"bytes\": 13029, \"arrived_at\": \"2026-08-26 03:43:00\"}, {\"path\": \"landing/payments/keel_payments_20260826.csv\", \"bytes\": 15606, \"arrived_at\": \"2026-08-27 03:11:00\"}, {\"path\": \"landing/payments/keel_payments_20260827.csv\", \"bytes\": 17296, \"arrived_at\": \"2026-08-28 03:34:00\"}, {\"path\": \"landing/payments/keel_payments_20260828.csv\", \"bytes\": 16353, \"arrived_at\": \"2026-08-29 03:53:00\"}, {\"path\": \"landing/payments/keel_payments_20260831.csv\", \"bytes\": 15357, \"arrived_at\": \"2026-09-01 03:32:00\"}, {\"path\": \"landing/payments/keel_payments_20260901.csv\", \"bytes\": 15214, \"arrived_at\": \"2026-09-02 03:18:00\"}, {\"path\": \"landing/payments/keel_payments_20260902.csv\", \"bytes\": 15058, \"arrived_at\": \"2026-09-03 03:57:00\"}, {\"path\": \"landing/payments/keel_payments_20260903.csv\", \"bytes\": 14862, \"arrived_at\": \"2026-09-04 03:39:00\"}, {\"path\": \"landing/payments/keel_payments_20260904.csv\", \"bytes\": 11428, \"arrived_at\": \"2026-09-05 03:26:00\"}, {\"path\": \"landing/payments/keel_payments_20260908.csv\", \"bytes\": 12392, \"arrived_at\": \"2026-09-09 03:55:00\"}, {\"path\": \"landing/payments/keel_payments_20260909.csv\", \"bytes\": 15298, \"arrived_at\": \"2026-09-10 03:54:00\"}, {\"path\": \"landing/payments/keel_payments_20260910.csv\", \"bytes\": 14621, \"arrived_at\": \"2026-09-11 03:10:00\"}, {\"path\": \"landing/payments/keel_payments_20260911.csv\", \"bytes\": 12127, \"arrived_at\": \"2026-09-12 03:56:00\"}, {\"path\": \"landing/payments/keel_payments_20260914.csv\", \"bytes\": 10832, \"arrived_at\": \"2026-09-15 03:23:00\"}, {\"path\": \"landing/payments/keel_payments_20260915.csv\", \"bytes\": 11717, \"arrived_at\": \"2026-09-16 03:56:00\"}, {\"path\": \"landing/payments/keel_payments_20260916.csv\", \"bytes\": 11515, \"arrived_at\": \"2026-09-17 03:55:00\"}, {\"path\": \"landing/payments/keel_payments_20260917.csv\", \"bytes\": 9668, \"arrived_at\": \"2026-09-18 03:38:00\"}, {\"path\": \"landing/payments/keel_payments_20260918.csv\", \"bytes\": 14860, \"arrived_at\": \"2026-09-19 03:16:00\"}, {\"path\": \"landing/payments/keel_payments_20260921.csv\", \"bytes\": 15210, \"arrived_at\": \"2026-09-22 03:49:00\"}, {\"path\": \"landing/payments/keel_payments_20260922.csv\", \"bytes\": 15447, \"arrived_at\": \"2026-09-23 03:25:00\"}, {\"path\": \"landing/payments/keel_payments_20260923.csv\", \"bytes\": 18826, \"arrived_at\": \"2026-09-24 03:18:00\"}]}",
+    "is_error": false
+   },
+   {
+    "type": "tool_result",
+    "tool_use_id": "toolu_01P3ckFTy62X42cZAmqu2LWB",
+    "content": "{\"ok\": true, \"result\": [{\"id\": \"keel-servicing\", \"name\": \"Keel Servicing, data operations desk\", \"kind\": \"vendor\", \"owns\": [\"source:payments\"], \"contact\": \"dataops@keelservicing.example\", \"hours\": \"business days 07:00-19:00 ET\", \"notes\": \"Copy vendor-management@harborlending.example on contract breaches.\"}, {\"id\": \"meridian-bureau\", \"name\": \"Meridian Credit Bureau, client data services\", \"kind\": \"vendor\", \"owns\": [\"source:bureau\"], \"contact\": \"client-data@meridianbureau.example\", \"hours\": \"business days 08:00-18:00 ET\"}, {\"id\": \"lending-ops\", \"name\": \"Harbor Lending origination systems team\", \"kind\": \"internal\", \"owns\": [\"source:loans\"], \"contact\": \"los-support@harborlending.example\"}, {\"id\": \"branch-ops\", \"name\": \"Harbor Lending branch operations\", \"kind\": \"internal\", \"owns\": [\"source:branches\"], \"contact\": \"branch-ops@harborlending.example\"}, {\"id\": \"finance-reporting\", \"name\": \"Finance reporting (consumers of mart_delinquency)\", \"kind\": \"internal\", \"owns\": [], \"contact\": \"finance-reporting@harborlending.example\"}, {\"id\": \"data-platform\", \"name\": \"Data platform team (the on-call rotation)\", \"kind\": \"internal\", \"owns\": [\"pipeline\", \"monitors\", \"orchestration\", \"infrastructure\"], \"contact\": \"data-platform@harborlending.example\"}]}",
+    "is_error": false
+   }
+  ]
+ },
+ {
+  "role": "assistant",
+  "stop_reason": "tool_use",
+  "content": [
+   {
+    "id": "toolu_01XUuCNF2JkjtQZTQxHBz6aR",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "path": "landing/payments/keel_payments_20260923.csv",
+     "max_lines": 8
+    },
+    "name": "read_landing_file",
+    "type": "tool_use"
+   },
+   {
+    "id": "toolu_019vuexhhnQMmGXg2qFb1FKJ",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "source": "payments"
+    },
+    "name": "get_contract",
+    "type": "tool_use"
+   }
+  ]
+ },
+ {
+  "role": "user",
+  "content": [
+   {
+    "type": "tool_result",
+    "tool_use_id": "toolu_01XUuCNF2JkjtQZTQxHBz6aR",
+    "content": "{\"ok\": true, \"result\": {\"path\": \"landing/payments/keel_payments_20260923.csv\", \"total_lines\": 293, \"start_line\": 1, \"lines\": [\"payment_id,loan_id,payment_date,amount,principal_amount,interest_amount,cdc_op,cdc_seq\", \"P000008079,L0000008,2026-09-23,25956.00,19872.00,6084.00,I,1\", \"P000008080,L0000056,2026-09-23,12133.00,10506.00,1627.00,I,2\", \"P000008081,L0000085,2026-09-23,154465.00,68470.00,85995.00,I,3\", \"P000008082,L0000093,2026-09-23,77630.00,56085.00,21545.00,I,4\", \"P000008083,L0000098,2026-09-23,70137.00,34878.00,35259.00,I,5\", \"P000008084,L0000101,2026-09-23,16347.00,13398.00,2949.00,I,6\", \"P000008085,L0000120,2026-09-23,65442.00,41164.00,24278.00,I,7\"]}}",
+    "is_error": false
+   },
+   {
+    "type": "tool_result",
+    "tool_use_id": "toolu_019vuexhhnQMmGXg2qFb1FKJ",
+    "content": "{\"ok\": true, \"result\": {\"source\": \"payments\", \"content\": \"contract: keel_payments\\nversion: \\\"2.1\\\"\\nsource: payments\\nowner: keel-servicing\\ndescription: Daily payment activity posted by Keel Servicing, Harbor Lending's loan servicer.\\ndelivery:\\n  directory: landing/payments\\n  file_pattern: \\\"keel_payments_{yyyymmdd}.csv\\\"\\n  redelivery_pattern: \\\"keel_payments_{yyyymmdd}_r{n}.csv\\\"\\n  schedule: business_days\\n  due_by: \\\"05:00 on the calendar day after the business day\\\"\\n  holidays: >-\\n    No file is delivered for bank holidays on the Harbor business calendar. Payments\\n    received on a holiday are included in the next business day's file.\\n  redelivery: >-\\n    A corrected or complete file is re-sent with an _r<n> suffix. The highest revision\\n    supersedes earlier ones for the same business day.\\nformat:\\n  type: csv\\n  header: true\\n  trailer: \\\"TRL|<record_count>|<control_total>, control_total = sum of amount over all records\\\"\\ncolumns:\\n  - {name: payment_id, type: varchar, required: true}\\n  - {name: loan_id, type: varchar, required: true}\\n  - {name: payment_date, type: date, required: true}\\n  - {name: amount, type: \\\"decimal(18,2)\\\", required: true, unit: \\\"US dollars, two decimal places\\\"}\\n  - {name: principal_amount, type: \\\"decimal(18,2)\\\", required: true, unit: \\\"US dollars, two decimal places\\\"}\\n  - {name: interest_amount, type: \\\"decimal(18,2)\\\", required: true, unit: \\\"US dollars, two decimal places\\\"}\\n  - {name: cdc_op, type: varchar, required: true, description: \\\"I = new payment, U = correction\\\"}\\n  - {name: cdc_seq, type: integer, required: true}\\nsemantics:\\n  cdc: >-\\n    Each record is a change event. The record with the highest cdc_seq for a payment_id is\\n    the current state. After a connector restart events can be sent again; a re-sent\\n    event keeps its original cdc_seq.\\n  expected_values: \\\"A single payment above 50000.00 dollars is exceptional.\\\"\\nchange_policy:\\n  notice_days: 30\\n  notice_to: data-platform@harborlending.example\\n  breaking_changes: column renames or removals, type changes, unit changes, file naming changes\\n  on_breach: >-\\n    Do not adapt the pipeline to an unannounced breaking change. Raise it with the vendor\\n    through the owner contact so the vendor corrects and re-sends the file.\\n\"}}",
+    "is_error": false
+   }
+  ]
+ },
+ {
+  "role": "assistant",
+  "stop_reason": "tool_use",
+  "content": [
+   {
+    "text": "Amounts in cents (unit change). Quarantine and escalate.",
+    "type": "text"
+   },
+   {
+    "id": "toolu_01N7NPMEUbzW3dh2LuQ7UoyZ",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "table": "raw.payments",
+     "partition": "2026-09-23",
+     "reason": "Amounts ~100x too large (cents instead of dollars); loaded total 39,499,206.00 vs trailer 394,992.06"
+    },
+    "name": "quarantine",
+    "type": "tool_use"
+   },
+   {
+    "id": "toolu_01H9TKoYmCD1uPWQosxXe6F4",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "owner": "keel-servicing",
+     "summary": "keel_payments_20260923.csv has amounts apparently in cents rather than dollars (sum 39,499,206.00 vs trailer control total 394,992.06; unannounced unit change breaching contract v2.1). Please correct and re-send as keel_payments_20260923_r1.csv. Cc vendor-management@harborlending.example. Partition quarantined on our side."
+    },
+    "name": "escalate",
+    "type": "tool_use"
+   }
+  ]
+ },
+ {
+  "role": "user",
+  "content": [
+   {
+    "type": "tool_result",
+    "tool_use_id": "toolu_01N7NPMEUbzW3dh2LuQ7UoyZ",
+    "content": "{\"ok\": true, \"result\": {\"quarantined\": \"raw.payments 2026-09-23\", \"rebuild\": {\"dbt_build\": \"success\", \"publish\": \"success\"}}}",
+    "is_error": false
+   },
+   {
+    "type": "tool_result",
+    "tool_use_id": "toolu_01H9TKoYmCD1uPWQosxXe6F4",
+    "content": "{\"ok\": true, \"result\": {\"sent_to\": \"dataops@keelservicing.example\", \"owner\": \"keel-servicing\"}}",
+    "is_error": false
+   }
+  ]
+ },
+ {
+  "role": "assistant",
+  "stop_reason": "tool_use",
+  "content": [
+   {
+    "id": "toolu_01MYfeCDLpTtguNXxovMg6co",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "decision": "quarantine_and_escalate",
+     "root_cause": "source:payments",
+     "evidence": [
+      "ALR-B986A9",
+      "ALR-D529F2",
+      "ALR-E6E7C4",
+      "ALR-CD3735",
+      "landing/payments/keel_payments_20260923.csv",
+      "contract keel_payments v2.1"
+     ],
+     "summary": "The 2026-09-23 Keel payments file has amounts about 100x too large, which looks like cents instead of dollars. The loaded total was 39,499,206.00 against a trailer control total of 394,992.06. That caused the negative-balance test failure, the dbt_build failure and the stale mart_delinquency. I quarantined the partition, and the rebuild and publish succeeded. I escalated to Keel to re-send a corrected _r1 file. Once it arrives, the 2026-09-23 partition will need reprocessing."
+    },
+    "name": "submit",
+    "type": "tool_use"
+   }
+  ]
+ },
+ {
+  "role": "user",
+  "content": [
+   {
+    "type": "tool_result",
+    "tool_use_id": "toolu_01MYfeCDLpTtguNXxovMg6co",
+    "content": "{\"ok\": true, \"result\": {\"status\": \"submitted\"}}",
+    "is_error": false
+   }
+  ]
+ }
+]

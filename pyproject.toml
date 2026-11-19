@@ -1,6 +1,6 @@
 [project]
 name = "triagebench"
-version = "0.1.0"
+version = "0.1.1"
 description = "A benchmark for agents that respond to data-pipeline alerts: decision, root cause, warehouse end state and restraint."
 readme = "README.md"
 license = "MIT"

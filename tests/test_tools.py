@@ -79,6 +79,22 @@ def test_submit_validates_arguments(episode: Episode) -> None:
     assert episode.api.submission is None
 
 
+def test_arguments_of_the_wrong_json_type_are_refused(episode: Episode) -> None:
+    # A first live run passed evidence as one string; it must not be split into characters.
+    res = episode.api.call(
+        "submit",
+        {"decision": "no_action", "root_cause": "source:calendar", "evidence": "ALR-1", "summary": "ok"},
+    )
+    assert not res["ok"]
+    assert "evidence" in res["error"] and "array" in res["error"]
+    assert episode.api.submission is None
+    res = episode.api.call(
+        "submit", {"decision": "no_action", "root_cause": "source:calendar", "evidence": [1], "summary": "ok"}
+    )
+    assert not res["ok"] and "item 0" in res["error"]
+    assert episode.api.submission is None
+
+
 def test_crawl_finds_no_leak_and_detects_a_planted_one(generated: list[str]) -> None:
     import re
 

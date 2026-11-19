@@ -5,32 +5,32 @@
     "resolved": 33,
     "tasks": 33,
     "unresolved": [],
-    "seconds": 12.4
+    "seconds": 18.4
   },
   "alerts": {
     "ok": true,
     "problems": {},
     "tasks": 33,
-    "seconds": 7.0
+    "seconds": 9.7
   },
   "leakage": {
     "ok": true,
     "problems": {},
-    "characters_crawled": 17569056,
-    "seconds": 32.5
+    "characters_crawled": 17583708,
+    "seconds": 43.4
   },
   "incremental": {
     "ok": true,
     "dbt_success": true,
     "differences": [],
-    "seconds": 3.5
+    "seconds": 5.1
   },
   "determinism": {
     "ok": true,
     "differences": [],
     "worlds_compared": 34,
-    "seconds": 97.2
+    "seconds": 110.8
   },
   "ok": true,
-  "seconds": 152.6
+  "seconds": 187.4
 }

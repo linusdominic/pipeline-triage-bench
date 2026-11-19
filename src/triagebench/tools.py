@@ -53,6 +53,37 @@ B = {"type": "boolean"}
 STRS = {"type": "array", "items": {"type": "string"}}
 
 
+_JSON_TYPES: dict[str, tuple[type, ...]] = {
+    "string": (str,),
+    "integer": (int,),
+    "number": (int, float),
+    "boolean": (bool,),
+    "array": (list,),
+    "object": (dict,),
+}
+
+
+def _type_problem(schema: dict[str, Any], value: Any) -> str | None:
+    """Why ``value`` does not have the JSON type ``schema`` names, or None if it does.
+
+    Checks the top-level type and the item type of arrays, so that, for example, a string
+    passed where a list of strings is expected is refused instead of being split into
+    characters. Booleans are not accepted as integers.
+    """
+    expected = schema.get("type")
+    if not isinstance(expected, str) or expected not in _JSON_TYPES:
+        return None
+    if (isinstance(value, bool) and expected in ("integer", "number")) or not isinstance(value, _JSON_TYPES[expected]):
+        return f"must be a JSON {expected}, got {type(value).__name__}"
+    items = schema.get("items")
+    if expected == "array" and isinstance(items, dict) and isinstance(value, list):
+        for i, item in enumerate(value):
+            problem = _type_problem(items, item)
+            if problem:
+                return f"item {i} {problem}"
+    return None
+
+
 def _jsonable(o: Any) -> Any:
     if isinstance(o, Decimal):
         return str(o)
@@ -188,6 +219,10 @@ class ToolAPI:
         missing = [k for k in tool.schema.get("required", []) if k not in args]
         if missing:
             raise ToolError(f"missing required argument(s) {missing}")
+        for key, value in args.items():
+            problem = _type_problem(props[key], value)
+            if problem:
+                raise ToolError(f"argument {key!r} {problem}")
 
     # --- helpers -----------------------------------------------------------------------
     def _tracked(self) -> list[str]:
@@ -729,9 +764,11 @@ class ToolAPI:
                 "submit",
                 TERMINAL,
                 "End the episode with your conclusion. decision: no_action (nothing is wrong; the alert is expected "
-                "or benign), rerun (a task failed transiently or its corrected input is now present; re-run it "
-                "unchanged), backfill (partitions must be reprocessed because input arrived late or reference data "
-                "was refreshed), fix_code (pipeline code is wrong), fix_config (a monitor is misconfigured), "
+                "or benign), rerun (a task failed for a transient reason with its input intact, or it loaded a wrong "
+                "input, such as a truncated file, that has since been re-delivered corrected; re-run it unchanged), "
+                "backfill (an input was missing when the scheduled run happened and has arrived since, or reference "
+                "data was refreshed, so partitions must be reprocessed), fix_code (pipeline code is wrong), "
+                "fix_config (a monitor is misconfigured), "
                 "escalate (data owned by someone else is wrong or missing and only they can fix it), "
                 "quarantine_and_escalate (wrong data was loaded; isolate it and tell the owner). root_cause: the "
                 "component whose behaviour explains the alerts, one of "
