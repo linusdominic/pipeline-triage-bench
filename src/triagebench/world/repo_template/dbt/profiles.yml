@@ -1,0 +1,7 @@
+harbor:
+  target: prod
+  outputs:
+    prod:
+      type: duckdb
+      path: "{{ env_var('HARBOR_WAREHOUSE') }}"
+      threads: 4

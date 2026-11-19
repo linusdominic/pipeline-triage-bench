@@ -1,0 +1,29 @@
+contract: meridian_weekly_refresh
+version: "1.3"
+source: bureau
+owner: meridian-bureau
+description: Weekly credit score refresh for every Harbor Lending borrower.
+delivery:
+  directory: landing/bureau
+  file_pattern: "meridian_refresh_{yyyymmdd}.csv"
+  redelivery_pattern: "meridian_refresh_{yyyymmdd}_r{n}.csv"
+  schedule: weekly
+  due_by: "05:00 on the calendar day after Monday"
+  holidays: >-
+    If Monday is a bank holiday the refresh is produced on the next business day and is
+    due by 05:00 the following calendar day.
+format:
+  type: csv
+  header: true
+  trailer: none
+columns:
+  - {name: borrower_id, type: varchar, required: true}
+  - {name: score, type: integer, required: true, description: "score from 300 to 850"}
+  - {name: score_date, type: date, required: true}
+change_policy:
+  notice_days: 30
+  notice_to: data-platform@harborlending.example
+  breaking_changes: column renames or removals, type changes, file naming changes
+  on_breach: >-
+    Do not adapt the pipeline to an unannounced breaking change. Raise it with the vendor
+    through the owner contact.

@@ -1,0 +1,27 @@
+contract: branch_reference
+version: "1.1"
+source: branches
+owner: branch-ops
+description: Snapshot of all Harbor Lending branches, including branches opening in the coming week.
+delivery:
+  directory: landing/branches
+  file_pattern: "branches_{yyyymmdd}.csv"
+  schedule: weekly
+  due_by: "05:00 on the first business day of the week"
+  holidays: If Monday is a bank holiday the snapshot is sent on the next business day.
+  loading: >-
+    ingest_branches runs in the DAG for the first business day of each week and loads the
+    newest snapshot that has arrived. A snapshot that arrives after that run is picked up
+    by the next weekly run, or by re-running ingest_branches.
+format:
+  type: csv
+  header: true
+  trailer: none
+columns:
+  - {name: branch_code, type: varchar, required: true}
+  - {name: branch_name, type: varchar, required: true}
+  - {name: region, type: varchar, required: true}
+  - {name: opened_date, type: date, required: true}
+change_policy:
+  notice_days: 5
+  notice_to: data-platform@harborlending.example

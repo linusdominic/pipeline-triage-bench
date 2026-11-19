@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: dim_branch
+    columns:
+      - name: branch_code
+        data_tests: [unique, not_null]
+  - name: fct_payments
+    description: One row per payment, enriched with loan and branch attributes.
+    columns:
+      - name: payment_id
+        data_tests: [unique, not_null]
+      - name: amount
+        data_tests: [not_null]
+  - name: fct_loan_balance_daily
+    description: Outstanding balance per loan per business day.
+    columns:
+      - name: loan_id
+        data_tests: [not_null]
+  - name: mart_delinquency
+    description: Delinquency by region and product per business day.
+    columns:
+      - name: region
+        data_tests: [not_null]

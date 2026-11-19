@@ -1,0 +1,35 @@
+# Who owns what. Escalate to the owner of the thing that is wrong.
+owners:
+  - id: keel-servicing
+    name: Keel Servicing, data operations desk
+    kind: vendor
+    owns: [source:payments]
+    contact: dataops@keelservicing.example
+    hours: "business days 07:00-19:00 ET"
+    notes: Copy vendor-management@harborlending.example on contract breaches.
+  - id: meridian-bureau
+    name: Meridian Credit Bureau, client data services
+    kind: vendor
+    owns: [source:bureau]
+    contact: client-data@meridianbureau.example
+    hours: "business days 08:00-18:00 ET"
+  - id: lending-ops
+    name: Harbor Lending origination systems team
+    kind: internal
+    owns: [source:loans]
+    contact: los-support@harborlending.example
+  - id: branch-ops
+    name: Harbor Lending branch operations
+    kind: internal
+    owns: [source:branches]
+    contact: branch-ops@harborlending.example
+  - id: finance-reporting
+    name: Finance reporting (consumers of mart_delinquency)
+    kind: internal
+    owns: []
+    contact: finance-reporting@harborlending.example
+  - id: data-platform
+    name: Data platform team (the on-call rotation)
+    kind: internal
+    owns: [pipeline, monitors, orchestration, infrastructure]
+    contact: data-platform@harborlending.example

@@ -1,0 +1,27 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    description: Files from the landing zone, loaded as delivered by ingestion/harbor_ingest.py.
+    loaded_at_field: _loaded_at
+    freshness:
+      warn_after: {count: 30, period: hour}
+    tables:
+      - name: loans
+        description: Daily loan-origination extract from the loan origination system (lending-ops).
+      - name: payments
+        description: Daily payments file from Keel Servicing, one row per CDC event.
+      - name: bureau
+        description: Weekly credit score refresh from Meridian Credit Bureau.
+        freshness:
+          warn_after: {count: 8, period: day}
+      - name: branches
+        description: Weekly branch reference snapshot from branch-ops.
+        freshness: null
+  - name: ops
+    schema: ops
+    tables:
+      - name: quarantine
+        description: Raw partitions excluded from staging until released.
+        freshness: null

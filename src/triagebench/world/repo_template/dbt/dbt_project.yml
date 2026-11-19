@@ -1,0 +1,25 @@
+name: harbor
+version: "1.4.0"
+config-version: 2
+profile: harbor
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+target-path: "target"
+clean-targets: ["target"]
+
+vars:
+  # Partition being built, e.g. --vars '{ds: "2026-11-05"}'. Unset means all partitions.
+  ds: null
+
+models:
+  harbor:
+    staging:
+      +materialized: incremental
+      +incremental_strategy: append
+      +pre-hook: "{{ delete_partition() }}"
+    marts:
+      +materialized: incremental
+      +incremental_strategy: append
+      +pre-hook: "{{ delete_partition() }}"

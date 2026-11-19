@@ -1,0 +1,86 @@
+# Data monitors. The checker evaluates every monitor after each daily DAG run and opens,
+# updates or resolves alerts. Change thresholds here, through review.
+defaults:
+  lookback_partitions: 3   # recent partitions each partition-level monitor looks at
+
+monitors:
+  - name: freshness_raw_payments
+    type: freshness
+    table: raw.payments
+    partition_column: _ds
+    schedule: daily
+    calendar: weekdays             # weekdays | business_calendar
+    max_partition_lag_days: 1      # newest partition may be this many calendar days old
+    severity: high
+
+  - name: freshness_raw_bureau
+    type: freshness
+    table: raw.bureau
+    partition_column: _ds
+    schedule: weekly
+    calendar: weekdays
+    severity: medium
+
+  - name: freshness_mart_delinquency
+    type: freshness
+    table: main.mart_delinquency
+    partition_column: ds
+    schedule: daily
+    calendar: weekdays
+    max_partition_lag_days: 1
+    severity: high
+
+  - name: volume_raw_payments
+    type: volume
+    table: raw.payments
+    partition_column: _ds
+    baseline_partitions: 20        # trailing partitions used for the median
+    threshold: 0.35                # alert when |rows / median - 1| exceeds this
+    severity: medium
+
+  - name: volume_raw_loans
+    type: volume
+    table: raw.loans
+    partition_column: _ds
+    baseline_partitions: 20
+    threshold: 0.30
+    severity: medium
+
+  - name: volume_fct_payments
+    type: volume
+    table: main.fct_payments
+    partition_column: ds
+    baseline_partitions: 20
+    threshold: 0.35
+    severity: medium
+
+  - name: schema_payments
+    type: schema
+    source: payments
+    severity: high
+
+  - name: schema_bureau
+    type: schema
+    source: bureau
+    severity: high
+
+  - name: schema_loans
+    type: schema
+    source: loans
+    severity: high
+
+  - name: reconciliation_payments
+    type: reconciliation
+    source: payments
+    table: raw.payments
+    amount_column: amount
+    tolerance_pct: 0.5             # percent difference allowed against the trailer control total
+    severity: high
+
+  - name: dbt_tests
+    type: dbt_tests
+    severity: high
+
+  - name: task_failures
+    type: task_failure
+    severity: high

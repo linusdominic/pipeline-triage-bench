@@ -1,0 +1,20 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: astral-sh/setup-uv@v10.3.3
+      - run: uv python install 3.12
+      - run: uv sync --all-extras --frozen
+      - run: make lint
+      - run: make test
+      # Oracle 100%, determinism (a second generation), leakage, alerts fire.
+      - run: make validate

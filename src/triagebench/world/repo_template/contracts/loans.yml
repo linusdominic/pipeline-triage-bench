@@ -1,0 +1,28 @@
+contract: los_daily_originations
+version: "1.0"
+source: loans
+owner: lending-ops
+description: Loans originated each business day, extracted from the loan origination system.
+delivery:
+  directory: landing/loans
+  file_pattern: "loans_{yyyymmdd}.csv"
+  redelivery_pattern: "loans_{yyyymmdd}_r{n}.csv"
+  schedule: business_days
+  due_by: "05:00 on the calendar day after the business day"
+  holidays: Branches are closed on bank holidays and no extract is produced.
+format:
+  type: csv
+  header: true
+  trailer: "TRL|<record_count>|<control_total>, control_total = sum of principal"
+columns:
+  - {name: loan_id, type: varchar, required: true}
+  - {name: borrower_id, type: varchar, required: true}
+  - {name: branch_code, type: varchar, required: true}
+  - {name: product_code, type: varchar, required: true}
+  - {name: origination_date, type: date, required: true}
+  - {name: principal, type: "decimal(18,2)", required: true, unit: "US dollars"}
+  - {name: annual_rate, type: double, required: true, unit: percent}
+  - {name: term_months, type: integer, required: true}
+change_policy:
+  notice_days: 10
+  notice_to: data-platform@harborlending.example

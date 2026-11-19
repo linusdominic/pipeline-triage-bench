@@ -1,0 +1,1002 @@
+{
+  "always_close": {
+    "cdc_replay_a": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "cdc_replay_b": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "cdc_replay_c": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "cents_a": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "cents_b": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "cents_c": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "discontinuation_a": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "discontinuation_b": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "discontinuation_c": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "fanout_a": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "fanout_b": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "fanout_c": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "holiday_a": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "holiday_b": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "holiday_c": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "late_file_a": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "late_file_b": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "late_file_c": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "rename_a": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "rename_b": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "rename_c": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "stale_reference_a": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "stale_reference_b": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "stale_reference_c": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "tight_config_a": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "tight_config_b": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "tight_config_c": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "transient_a": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "transient_b": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "transient_c": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "truncated_a": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "truncated_b": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "truncated_c": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    }
+  },
+  "always_escalate": {
+    "cdc_replay_a": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "cdc_replay_b": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "cdc_replay_c": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "cents_a": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "cents_b": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "cents_c": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "discontinuation_a": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "discontinuation_b": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "discontinuation_c": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "fanout_a": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "fanout_b": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "fanout_c": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "holiday_a": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "holiday_b": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "holiday_c": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "late_file_a": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "late_file_b": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "late_file_c": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "rename_a": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "rename_b": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "rename_c": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "stale_reference_a": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "stale_reference_b": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "stale_reference_c": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "tight_config_a": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "tight_config_b": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "tight_config_c": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "transient_a": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "transient_b": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "transient_c": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "truncated_a": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "truncated_b": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "truncated_c": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    }
+  },
+  "always_rerun": {
+    "cdc_replay_a": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "cdc_replay_b": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "cdc_replay_c": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "cents_a": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "cents_b": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "cents_c": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "discontinuation_a": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "discontinuation_b": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "discontinuation_c": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "fanout_a": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "fanout_b": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "fanout_c": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "holiday_a": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "holiday_b": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "holiday_c": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "late_file_a": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "late_file_b": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "late_file_c": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "rename_a": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "rename_b": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "rename_c": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "stale_reference_a": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "stale_reference_b": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "stale_reference_c": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "tight_config_a": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "tight_config_b": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "tight_config_c": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "transient_a": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "transient_b": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "transient_c": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "truncated_a": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "truncated_b": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "truncated_c": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    }
+  },
+  "fix_everything": {
+    "cdc_replay_a": {
+      "decision": "fix_config",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "cdc_replay_b": {
+      "decision": "fix_config",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "cdc_replay_c": {
+      "decision": "fix_config",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "cents_a": {
+      "decision": "rerun",
+      "forbidden": 1,
+      "resolved": false,
+      "unnecessary": 3
+    },
+    "cents_b": {
+      "decision": "rerun",
+      "forbidden": 1,
+      "resolved": false,
+      "unnecessary": 3
+    },
+    "cents_c": {
+      "decision": "fix_code",
+      "forbidden": 1,
+      "resolved": false,
+      "unnecessary": 3
+    },
+    "discontinuation_a": {
+      "decision": "fix_config",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "discontinuation_b": {
+      "decision": "fix_config",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "discontinuation_c": {
+      "decision": "fix_config",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "fanout_a": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "fanout_b": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "fanout_c": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "holiday_a": {
+      "decision": "backfill",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "holiday_b": {
+      "decision": "backfill",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "holiday_c": {
+      "decision": "backfill",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "late_file_a": {
+      "decision": "backfill",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "late_file_b": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "late_file_c": {
+      "decision": "backfill",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "rename_a": {
+      "decision": "backfill",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 4
+    },
+    "rename_b": {
+      "decision": "fix_code",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 4
+    },
+    "rename_c": {
+      "decision": "backfill",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 5
+    },
+    "stale_reference_a": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "stale_reference_b": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "stale_reference_c": {
+      "decision": "fix_config",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "tight_config_a": {
+      "decision": "fix_config",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "tight_config_b": {
+      "decision": "backfill",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "tight_config_c": {
+      "decision": "fix_config",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "transient_a": {
+      "decision": "backfill",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "transient_b": {
+      "decision": "backfill",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "transient_c": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    },
+    "truncated_a": {
+      "decision": "backfill",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 0
+    },
+    "truncated_b": {
+      "decision": "backfill",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 2
+    },
+    "truncated_c": {
+      "decision": "backfill",
+      "forbidden": 0,
+      "resolved": false,
+      "unnecessary": 1
+    }
+  },
+  "oracle": {
+    "cdc_replay_a": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "cdc_replay_b": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "cdc_replay_c": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "cents_a": {
+      "decision": "quarantine_and_escalate",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "cents_b": {
+      "decision": "quarantine_and_escalate",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "cents_c": {
+      "decision": "quarantine_and_escalate",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "discontinuation_a": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "discontinuation_b": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "discontinuation_c": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "fanout_a": {
+      "decision": "fix_code",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "fanout_b": {
+      "decision": "fix_code",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "fanout_c": {
+      "decision": "fix_code",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "holiday_a": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "holiday_b": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "holiday_c": {
+      "decision": "no_action",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "late_file_a": {
+      "decision": "backfill",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "late_file_b": {
+      "decision": "backfill",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "late_file_c": {
+      "decision": "backfill",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "rename_a": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "rename_b": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "rename_c": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "stale_reference_a": {
+      "decision": "backfill",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "stale_reference_b": {
+      "decision": "backfill",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "stale_reference_c": {
+      "decision": "backfill",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "tight_config_a": {
+      "decision": "fix_config",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "tight_config_b": {
+      "decision": "fix_config",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "tight_config_c": {
+      "decision": "fix_config",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "transient_a": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "transient_b": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "transient_c": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "truncated_a": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "truncated_b": {
+      "decision": "escalate",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    },
+    "truncated_c": {
+      "decision": "rerun",
+      "forbidden": 0,
+      "resolved": true,
+      "unnecessary": 0
+    }
+  }
+}

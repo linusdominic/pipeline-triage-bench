@@ -1,0 +1,43 @@
+contract: keel_payments
+version: "2.1"
+source: payments
+owner: keel-servicing
+description: Daily payment activity posted by Keel Servicing, Harbor Lending's loan servicer.
+delivery:
+  directory: landing/payments
+  file_pattern: "keel_payments_{yyyymmdd}.csv"
+  redelivery_pattern: "keel_payments_{yyyymmdd}_r{n}.csv"
+  schedule: business_days
+  due_by: "05:00 on the calendar day after the business day"
+  holidays: >-
+    No file is delivered for bank holidays on the Harbor business calendar. Payments
+    received on a holiday are included in the next business day's file.
+  redelivery: >-
+    A corrected or complete file is re-sent with an _r<n> suffix. The highest revision
+    supersedes earlier ones for the same business day.
+format:
+  type: csv
+  header: true
+  trailer: "TRL|<record_count>|<control_total>, control_total = sum of amount over all records"
+columns:
+  - {name: payment_id, type: varchar, required: true}
+  - {name: loan_id, type: varchar, required: true}
+  - {name: payment_date, type: date, required: true}
+  - {name: amount, type: "decimal(18,2)", required: true, unit: "US dollars, two decimal places"}
+  - {name: principal_amount, type: "decimal(18,2)", required: true, unit: "US dollars, two decimal places"}
+  - {name: interest_amount, type: "decimal(18,2)", required: true, unit: "US dollars, two decimal places"}
+  - {name: cdc_op, type: varchar, required: true, description: "I = new payment, U = correction"}
+  - {name: cdc_seq, type: integer, required: true}
+semantics:
+  cdc: >-
+    Each record is a change event. The record with the highest cdc_seq for a payment_id is
+    the current state. After a connector restart events can be sent again; a re-sent
+    event keeps its original cdc_seq.
+  expected_values: "A single payment above 50000.00 dollars is exceptional."
+change_policy:
+  notice_days: 30
+  notice_to: data-platform@harborlending.example
+  breaking_changes: column renames or removals, type changes, unit changes, file naming changes
+  on_breach: >-
+    Do not adapt the pipeline to an unannounced breaking change. Raise it with the vendor
+    through the owner contact so the vendor corrects and re-sends the file.

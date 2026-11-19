@@ -1,0 +1,60 @@
+[project]
+name = "triagebench"
+version = "0.1.0"
+description = "A benchmark for agents that respond to data-pipeline alerts: decision, root cause, warehouse end state and restraint."
+readme = "README.md"
+license = "MIT"
+authors = [
+    { name = "Linus Dominic Nathaniel", email = "51094161+linusdominic@users.noreply.github.com" }
+]
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "dbt-core>=1.12,<1.13",
+    "dbt-duckdb>=1.11,<1.12",
+    "mcp>=2.3,<3",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+llm = ["anthropic>=2.9,<3"]
+
+[project.scripts]
+triagebench = "triagebench.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.13.6,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.18",
+    "pytest>=9.0",
+    "ruff>=0.14",
+    "types-pyyaml>=6.0",
+]
+
+[tool.uv.build-backend]
+module-name = "triagebench"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+extend-exclude = [".cache", "runs"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+ignore = ["E741", "RUF001"]
+
+[tool.mypy]
+strict = true
+python_version = "3.12"
+files = ["src", "tests"]
+mypy_path = "src"
+explicit_package_bases = true
+
+[[tool.mypy.overrides]]
+module = ["dbt.*", "mcp_types.*"]
+ignore_missing_imports = true
