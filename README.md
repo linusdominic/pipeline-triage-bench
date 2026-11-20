@@ -245,7 +245,7 @@ The rules are in [src/triagebench/scoring.py](src/triagebench/scoring.py) and de
 
 `make validate` runs five checks. Result of the run on 2026-11-19 after the definition change
 ([results/validation.json](results/validation.json)), 187.4 seconds in total (a 13 GB upload
-was running on the same machine; the earlier run took 152.6 s):
+was running on the same machine):
 
 | Check | What it shows | Result |
 | --- | --- | --- |
@@ -295,6 +295,10 @@ The server's instructions carry the same briefing the built-in agents get.
 
 ### Running a Claude model (paid)
 
+`ANTHROPIC_API_KEY` is the only key, and only `run-llm` needs it. [.env.example](.env.example)
+names it; nothing loads `.env`, so export the key in the shell as below (or fill in a copy of
+`.env.example` and run `set -a; source .env; set +a`).
+
 ```bash
 uv sync --extra llm
 export ANTHROPIC_API_KEY=...
@@ -311,16 +315,16 @@ measures the model it names.
 
 ## Timings
 
-All on an Apple M5 (10 cores), 2026-11-19, with the Makefile default of 4 worker processes,
-run in this order from an empty cache under `sandbox-exec` with outbound network access denied
-(`UV_OFFLINE=1`). Every target exited 0.
+All on an Apple M5 (10 cores) with the Makefile default of 4 worker processes. Unless a row
+says otherwise, run on 2026-11-19 in this order from an empty cache under `sandbox-exec` with
+outbound network access denied (`UV_OFFLINE=1`). Every target exited 0.
 
 | Command | Wall time |
 | --- | --- |
 | `make generate` from an empty cache | 80.0 s (base world 46.6 s, then 33 task worlds) |
-| `make validate` | 152.9 s (of which 83 s is the second generation for the determinism check) |
+| `make validate` | 187.4 s, from the later run after the definition change (see [Checks on the benchmark itself](#checks-on-the-benchmark-itself)), with a 13 GB upload running on the same machine |
 | `make baselines` (165 episodes) | 48.7 s; mean episode 1.15 s, slowest 5.74 s |
-| `make test` (21 tests, worlds already generated) | 29.1 s |
+| `make test` (22 tests, worlds already generated) | 28.2 s, re-timed on 2026-11-20 |
 | `triagebench run-llm`, 33 tasks | Opus 5.5 15 min 59 s, Sonnet 5.5 7 min 44 s, run at the same time, with network access |
 | `make lint` (ruff, ruff format, mypy --strict on 35 files) | 4.7 s |
 
@@ -346,8 +350,7 @@ results/              committed baseline scores, the validation report, and llm/
 ## What is not verified
 
 - **Two models, one run each.** Run-to-run variance is not measured, and no model other than
-  Claude Opus 5.5 and Sonnet 5.5 has been run. The test suite now has 22 tests (the timing
-  above is for the 21 before the argument type check was added).
+  Claude Opus 5.5 and Sonnet 5.5 has been run.
 - **The decision definitions were edited after a model was first run** (see
   [Claude models](#claude-models)). The change separates two overlapping definitions; it was
   prompted by one model's answer on one task, which is the kind of change that can tilt a
